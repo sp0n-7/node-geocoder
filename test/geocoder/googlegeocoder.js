@@ -191,15 +191,11 @@ describe('GoogleGeocoder', function() {
           "streetName"  : "Champs-Élysées",
           "streetNumber": "1",
           "countryCode" : "Fr",
-          "administrativeLevels": {
-            "level1long": "Île-de-France",
-            "level1short": "IDF"
-          },
+          "neighborhood": 'neighborhood, IDF',
           "extra": {
             "confidence": 0,
             "premise": null,
             "subpremise": null,
-            "neighborhood": 'neighborhood',
             "establishment": null,
             "googlePlaceId": null
           },
@@ -264,7 +260,7 @@ describe('GoogleGeocoder', function() {
      var googleAdapter = new GoogleGeocoder(mockedHttpAdapter);
 
      googleAdapter.geocode('350 5th Ave, New York, NY 10118', function(err, results) {
-       results[0].should.have.deep.property('extra.neighborhood', 'Midtown');
+       results[0].should.have.deep.property('neighborhood', 'Manhattan, NY');
        mock.verify();
        done();
      });
@@ -368,15 +364,11 @@ describe('GoogleGeocoder', function() {
           "streetName"  : "Champs-Élysées",
           "streetNumber": "1",
           "countryCode" : "Fr",
-          "administrativeLevels": {
-            "level1long": "Île-de-France",
-            "level1short": "IDF"
-          },
+          "neighborhood": "Paris, IDF",
           "extra": {
             "confidence": 0,
             "premise": null,
             "subpremise": null,
-            "neighborhood": null,
             "establishment": null,
             "googlePlaceId": null
           },
@@ -442,15 +434,11 @@ describe('GoogleGeocoder', function() {
           "streetName"  : "Champs-Élysées",
           "streetNumber": "1",
           "countryCode" : "Fr",
-          "administrativeLevels": {
-            "level1long": "Île-de-France",
-            "level1short": "IDF"
-          },
+          "neighborhood": "Paris, IDF",
           "extra": {
             "confidence": 0,
             "premise": null,
             "subpremise": null,
-            "neighborhood": null,
             "establishment": null,
             "googlePlaceId": null
           },
@@ -531,14 +519,10 @@ describe('GoogleGeocoder', function() {
           "streetName"  : "Bedford Avenue",
           "streetNumber": "277",
           "countryCode" : "US",
-          "administrativeLevels": {
-            "level1long": "État de New York",
-            "level1short": "NY"
-          },
+          "neighborhood": "Brooklyn, NY",
           "extra": {
             "premise": null,
             "subpremise": null,
-            "neighborhood": null,
             "establishment": null,
             "googlePlaceId": null,
             "confidence": 0
