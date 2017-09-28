@@ -220,6 +220,22 @@
                     done();
                 });
             });
+            
+            it('Should work with both q and address', function(done) {
+                var mock = sinon.mock(mockedHttpAdapter);
+                mock.expects('get').once().callsArgWith(2, false, [])
+                .withArgs('http://nominatim.openstreetmap.org/search', {
+                  format: 'json',
+                  addressdetails: 1,
+                  q:"Athens"
+                });
+
+                var osmAdapter = new OpenStreetMapGeocoder(mockedHttpAdapter);
+                osmAdapter.geocode({address:'Athens',format:'xml',addressdetails:0}, function(err, results) {
+                    mock.verify();
+                    done();
+                });
+            });
         });
 
         describe('#reverse' , function() {
